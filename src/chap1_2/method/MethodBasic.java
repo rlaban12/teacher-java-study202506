@@ -10,6 +10,7 @@ public class MethodBasic {
         int result1 = add(20, 30);
         System.out.println("result1 = " + result1);
 
+
         int result2 = addAll(new int[]{1, 2, 3, 4, 5, 6, 7});
         System.out.println("result2 = " + result2);
 
