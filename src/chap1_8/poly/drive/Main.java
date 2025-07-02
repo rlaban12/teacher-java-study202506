@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Tesla t1 = new Tesla();
+        Car t1 = new Tesla();
         Tesla t2 = new Tesla();
         Tesla t3 = new Tesla();
 

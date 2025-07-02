@@ -16,6 +16,14 @@ public class Mage extends Player {
     }
 
     void fireBall(Player player) {
+        /*
+            파이어볼을 맞은 플레이어의 직업이 전사면 50의 데미지를 입혀라
+            마법사면 60의 데미지
+            사냥꾼이면 40의 데미지를 입혀주세요.
+
+            만약 전사가 파이어볼을 맞으면 해당 전사는 그 파이어볼 시전자에게
+            돌진(dash)을 시전해야합니다.
+         */
         System.out.printf("%s님이 파이어볼을 시전합니다.\n", this.nickName);
     }
 }
