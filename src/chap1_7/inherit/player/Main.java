@@ -32,9 +32,10 @@ public class Main {
 
         System.out.println("=========");
 
-        mage.fireBall(warrior);
-        mage.fireBall(hunter);
-        mage.fireBall(new Mage("법사짱킹킹맨"));
+//        mage.fireBall(warrior);
+//        mage.fireBall(hunter);
+//        mage.fireBall(new Mage("법사짱킹킹맨"));
+        mage.fireBall(mage);
 
     }
 }
