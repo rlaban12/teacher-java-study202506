@@ -5,6 +5,8 @@ import java.util.UUID;
 
 // 역할: 회원 한 명의 회원 정보를 잘 가지고 있어야 함.
 public class Member {
+
+
     String email; // 본질 식별자
     String password;
     String memberName;
