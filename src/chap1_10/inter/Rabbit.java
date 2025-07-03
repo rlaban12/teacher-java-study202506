@@ -1,6 +1,6 @@
 package chap1_10.inter;
 
-public class Rabbit implements Pet {
+public class Rabbit extends Wild implements Pet {
 
     @Override
     public void handle() {
@@ -10,5 +10,10 @@ public class Rabbit implements Pet {
     @Override
     public boolean inject() {
         return false;
+    }
+
+    @Override
+    public void violent() {
+
     }
 }
