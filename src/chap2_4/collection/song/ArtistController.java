@@ -1,5 +1,6 @@
 package chap2_4.collection.song;
 
+import java.util.Map;
 import java.util.Set;
 
 import static chap1_9.static_.util.InputUtils.prompt;
@@ -37,7 +38,7 @@ public class ArtistController {
                     // 전체 등록되어있는 가수들의 이름과 노래의 개수를 출력
                     // ex) 동방신기 - 총 4곡
                     //     르세라핌 - 총 2곡
-//                    showAllArtist();
+                    showAllArtist();
                     break;
                 case "4":
                     System.out.println("# 프로그램을 종료합니까? [y/n]");
@@ -60,6 +61,18 @@ public class ArtistController {
         }
 
     } // end start()
+
+    // 3번메뉴 전체 가수조회 - 가수명과 총노래개수
+    private void showAllArtist() {
+        // 가수명이랑 노래개수 내놔
+        Map<String, Integer> artistData =
+                repository.getArtistNameAndSongCount();
+
+        System.out.println("===== 전체 가수 정보 =====");
+        for (String name : artistData.keySet()) {
+            System.out.printf("# %s - 총 %d곡\n", name, artistData.get(name));
+        }
+    }
 
 
     // 2번 메뉴 선택시
