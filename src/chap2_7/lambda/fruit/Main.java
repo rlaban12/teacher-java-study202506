@@ -1,6 +1,8 @@
 package chap2_7.lambda.fruit;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import static chap2_7.lambda.fruit.Color.*;
 import static chap2_7.lambda.fruit.FilterApple.*;
@@ -133,5 +135,76 @@ public class Main {
             ]
          */
 
+        List<Map<String, Object>> mapList = mappingApples(appleBasket, new AppleFunction<Map<String, Object>>() {
+            @Override
+            public Map<String, Object> apply(Apple apple) {
+                return Map.of(
+                        "first", apple.getColor().toString().charAt(0),
+                        "weight", apple.getWeight() / 1000.0
+                );
+            }
+        });
+        System.out.println(mapList);
+        System.out.println(mapList.get(0).get("weight"));
+        double weight = (double) mapList.get(0).get("weight");
+
+        System.out.println("==================");
+
+        List<FormatApple> formatApples = mappingApples(appleBasket, new AppleFunction<FormatApple>() {
+            @Override
+            public FormatApple apply(Apple apple) {
+                return new FormatApple(apple);
+            }
+        });
+        System.out.println("formatApples = " + formatApples);
+        double weight1 = formatApples.get(0).getWeight();
+
+    }// end main
+
+
+    private static class FormatApple {
+        private char first;
+        private double weight;
+
+        public FormatApple(Apple apple) {
+            this.first = apple.getColor().toString().charAt(0);
+            this.weight = apple.getWeight() / 1000.0;
+        }
+
+        public char getFirst() {
+            return first;
+        }
+
+        public void setFirst(char first) {
+            this.first = first;
+        }
+
+        public double getWeight() {
+            return weight;
+        }
+
+        public void setWeight(double weight) {
+            this.weight = weight;
+        }
+
+        @Override
+        public String toString() {
+            return "FormatApple{" +
+                    "first=" + first +
+                    ", weight=" + weight +
+                    '}';
+        }
+
+        @Override
+        public boolean equals(Object object) {
+            if (!(object instanceof FormatApple that)) return false;
+            return first == that.first && Double.compare(weight, that.weight) == 0;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(first, weight);
+        }
     }
+
 }
